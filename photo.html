@@ -1,0 +1,128 @@
+
+<html>
+<head>
+    <title>Accessible Photo Gallery</title>
+</head>
+
+    <style>
+        body{
+            text-align: center;
+            background-color: aquamarine;
+            padding: 70px;
+        }
+
+
+        #image {
+            width: 500px;
+            height: 300px;
+            border: 5px dashed black;
+            margin: 0 auto;
+            background-size: cover;
+            background-position: center;
+            line-height: 300px;
+            font-size: 20px;
+            border: 5px dashed #000000;
+        }
+
+        .gallery {
+            margin-top: 20px;
+        }
+
+        img{
+            width: 200px;
+            height: 150px;
+            margin-right: 20px;
+            cursor: pointer;
+            border-radius: 5px ;
+        }
+
+
+    </style>
+</head>
+
+<body onload="addTabIndex()">
+
+    <h1>Accessible Photo Gallery</h1>
+
+    <div id="image">
+        <p>Hover over an image below to display here.</p>
+    </div>
+
+    <div class="gallery d-flex flex-row justify-content-center flex-wrap">
+
+        <img src="https://images2.alphacoders.com/880/880680.jpg"
+             alt="img1"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+        <img src="https://getwallpapers.com/wallpaper/full/2/b/e/1386363-cool-amazon-rainforest-wallpaper-1920x1080-for-retina.jpg"
+             alt="img2"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+        <img src="https://tse3.mm.bing.net/th/id/OIP.Q74NxeoI87QvLLlaoVWOaAHaEK?r=0&pid=Api&P=0&h=180
+             alt="img3"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+        <img src="https://wallpaperaccess.com/full/1166676.jpg"
+             alt="img4"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+        <img src="https://i.pinimg.com/originals/c0/de/63/c0de6347a2e24ab7f7d8432958c78198.jpg"
+             alt="img5"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+        <img src="https://wallpaper.dog/large/20509901.jpg"
+             alt="img6"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+
+    </div>
+
+    <script>
+
+        function upDate(previewPic) {
+            console.log("upDate function called");
+            console.log(previewPic.src);
+            console.log(previewPic.alt);
+
+            document.getElementById("image").innerHTML = previewPic.alt;
+            document.getElementById("image").style.backgroundImage =
+                "url('" + previewPic.src + "')";
+        }
+
+        function unDo() {
+            document.getElementById("image").style.backgroundImage = "url('')";
+            document.getElementById("image").innerHTML =
+                "Hover over an image below to display here.";
+        }
+
+        function addTabIndex() {
+            console.log("Page has loaded!");
+
+            var images = document.querySelectorAll("img");
+
+            for (var i = 0; i < images.length; i++) {
+                images[i].setAttribute("tabindex", "0");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
